@@ -1,5 +1,6 @@
 import React from "react";
-import TotalFeedback from "./totalFeedback"
+import TotalFeedback from "./totalFeedback";
+import CountPositiveFeedbackPercentage from "./countPositiveFeedbackPercentage";
 
 class Feedback extends React.Component{
 
@@ -40,7 +41,10 @@ class Feedback extends React.Component{
                     good={this.state.good}
                     neutral={this.state.neutral}
                     bad={this.state.bad} />
-                <li className ="statistic__item">Positive feedback: {this.state.bad}</li>
+                <CountPositiveFeedbackPercentage
+                    good={this.state.good}
+                    neutral={this.state.neutral}
+                    bad={this.state.bad} />
             </ul>
         </div>
     </div>
