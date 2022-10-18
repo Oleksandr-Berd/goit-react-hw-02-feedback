@@ -1,4 +1,5 @@
 import React from "react";
+import TotalFeedback from "./totalFeedback"
 
 class Feedback extends React.Component{
 
@@ -6,8 +7,8 @@ class Feedback extends React.Component{
             good: 0,
             neutral: 0,
             bad: 0,
-        }
-
+   }
+    
     handleIncrement = (evt) => {
       
         evt.target.textContent === "Good" && this.setState((prevState) => {
@@ -18,8 +19,8 @@ class Feedback extends React.Component{
         })  
         evt.target.textContent === "Bad" && this.setState((prevState) => {
             return {bad: prevState.bad + 1}
-        })  
-    }
+        })
+    }   
 
     render(){
     return  <div>
@@ -34,7 +35,12 @@ class Feedback extends React.Component{
             <ul className="statistic__list">
                 <li className="statistic__item">Good: {this.state.good }</li>
                 <li className ="statistic__item">Neutral: {this.state.neutral}</li>
-                <li className ="statistic__item">Bad: {this.state.bad}</li>
+                <li className="statistic__item">Bad: {this.state.bad}</li>
+                <TotalFeedback
+                    good={this.state.good}
+                    neutral={this.state.neutral}
+                    bad={this.state.bad} />
+                <li className ="statistic__item">Positive feedback: {this.state.bad}</li>
             </ul>
         </div>
     </div>
