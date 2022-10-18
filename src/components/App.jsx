@@ -1,4 +1,4 @@
-import { Feedback } from "../components/Feedback"
+import Feedback from "../components/Feedback"
 
 export const App = () => {
   return (
@@ -16,3 +16,5 @@ export const App = () => {
     </div>
   );
 };
+
+

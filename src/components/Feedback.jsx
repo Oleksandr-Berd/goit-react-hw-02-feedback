@@ -1,21 +1,41 @@
 import React from "react";
 
-export const Feedback = () => (
-    <div>
-        <div clasName = "feedback">
-            <p>Please leave feedback</p>
-            <button>Good</button>
-            <button>Neutral</button>
-            <button>Bad</button>
+class Feedback extends React.Component{
+
+   state = {
+            good: 0,
+            neutral: 0,
+            bad: 0,
+        }
+
+    handleIncrement = (evt) => {
+
+        console.log(evt.target);
+      
+
+        this.setState((prevState) => {
+            return {good: prevState.good + 1}
+        })
+    }
+
+    render(){
+    return  <div>
+        <div className = "feedback">
+            <p className = "text__feedback">Please leave feedback</p>
+            <button type="button" data='good' onClick={this.handleIncrement}>Good</button>
+            <button type="button" onClick={this.handleIncrement}>Neutral</button>
+            <button type="button" onClick={this.handleIncrement}>Bad</button>
         </div> 
         <div className="statistic__feddback">
-            <p>Statistics</p>
+            <p className="textStatistic">Statistics</p>
             <ul className="statistic__list">
-                <li clasName ="statistic__item">Good: </li>
-                <li clasName ="statistic__item">Neutral: </li>
-                <li clasName ="statistic__item">Bad: </li>
+                <li className="statistic__item">Good: {this.state.good }</li>
+                <li className ="statistic__item">Neutral: {this.state.neutral}</li>
+                <li className ="statistic__item">Bad: {this.state.bad}</li>
             </ul>
         </div>
     </div>
-    
-)
+    }
+}
+
+export default Feedback
