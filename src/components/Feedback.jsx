@@ -9,20 +9,23 @@ class Feedback extends React.Component{
         }
 
     handleIncrement = (evt) => {
-
-        console.log(evt.target);
       
-
-        this.setState((prevState) => {
+        evt.target.textContent === "Good" && this.setState((prevState) => {
             return {good: prevState.good + 1}
         })
+        evt.target.textContent === "Neutral" && this.setState((prevState) => {
+            return {neutral: prevState.neutral + 1}
+        })  
+        evt.target.textContent === "Bad" && this.setState((prevState) => {
+            return {bad: prevState.bad + 1}
+        })  
     }
 
     render(){
     return  <div>
         <div className = "feedback">
             <p className = "text__feedback">Please leave feedback</p>
-            <button type="button" data='good' onClick={this.handleIncrement}>Good</button>
+            <button type="button" data="good" onClick={this.handleIncrement}>Good</button>
             <button type="button" onClick={this.handleIncrement}>Neutral</button>
             <button type="button" onClick={this.handleIncrement}>Bad</button>
         </div> 
