@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TotalFeedback from './totalFeedback';
 import CountPositiveFeedbackPercentage from './countPositiveFeedbackPercentage';
 
@@ -22,5 +23,11 @@ const Statistics = ({good, neutral, bad}) => (
     </ul>
   </div>
 );
+
+Statistics.prototype = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+}
 
 export default Statistics;

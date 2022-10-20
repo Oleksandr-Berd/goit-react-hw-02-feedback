@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FeedbackOptions = ({ onLeaveFeedback, options }) => (
+const FeedbackOptions = ({ onLeaveFeedback }) => (
   <div className="buttonContainer">
     <button type="button" onClick={onLeaveFeedback}>
       Good
@@ -13,6 +13,7 @@ const FeedbackOptions = ({ onLeaveFeedback, options }) => (
     </button>
   </div>
 );
+
 
 export default FeedbackOptions;
 
