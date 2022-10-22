@@ -2,7 +2,7 @@ import React from 'react';
 import css from './FeedbackOption.module.css';
 
 const FeedbackOptions = ({ onLeaveFeedback }) => (
-  <div className="buttonContainer">
+  <div className={css.buttonContainer}>
     <button type="button" onClick={onLeaveFeedback}>
       Good
     </button>
