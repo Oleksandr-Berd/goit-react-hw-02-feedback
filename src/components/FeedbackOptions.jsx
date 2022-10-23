@@ -1,17 +1,20 @@
 import React from 'react';
 import css from './FeedbackOption.module.css';
+import { nanoid } from 'nanoid';
 
-const FeedbackOptions = ({ onLeaveFeedback }) => (
+const FeedbackOptions = ({ onLeaveFeedback, options }) => (
   <div className={css.buttonContainer}>
-    <button type="button" onClick={onLeaveFeedback}>
-      Good
-    </button>
-    <button type="button" onClick={onLeaveFeedback}>
-      Neutral
-    </button>
-    <button type="button" onClick={onLeaveFeedback}>
-      Bad
-    </button>
+    {options.map(option => (
+      <button
+        key={nanoid()}
+        type="button"
+        onClick={onLeaveFeedback}
+        className={css.option__btn}
+        data-content={option}
+      >
+        {option}
+      </button>
+    ))}
   </div>
 );
 

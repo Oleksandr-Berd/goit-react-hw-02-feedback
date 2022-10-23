@@ -12,15 +12,15 @@ class Feedback extends React.Component {
   };
 
   handleIncrement = evt => {
-    evt.target.textContent === 'Good' &&
+    evt.target.textContent === 'good' &&
       this.setState(prevState => {
         return { good: prevState.good + 1 };
       });
-    evt.target.textContent === 'Neutral' &&
+    evt.target.textContent === 'neutral' &&
       this.setState(prevState => {
         return { neutral: prevState.neutral + 1 };
       });
-    evt.target.textContent === 'Bad' &&
+    evt.target.textContent === 'bad' &&
       this.setState(prevState => {
         return { bad: prevState.bad + 1 };
       });
@@ -30,12 +30,19 @@ class Feedback extends React.Component {
     return (
       <div>
         <StatisticsSection title={'Please leave feedback'} />
-        <FeedbackOptions onLeaveFeedback={this.handleIncrement} />
-      {this.state.good > 0 || this.state.neutral > 0 || this.state.bad > 0 ? (<Statistics
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
-            />) : (<Notification message="There is no feedback"/>)}
+        <FeedbackOptions
+          options={['good', 'neutral', 'bad']}
+          onLeaveFeedback={this.handleIncrement}
+        />
+        {this.state.good > 0 || this.state.neutral > 0 || this.state.bad > 0 ? (
+          <Statistics
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+          />
+        ) : (
+          <Notification message="There is no feedback" />
+        )}
       </div>
     );
   }
